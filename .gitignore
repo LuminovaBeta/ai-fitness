@@ -1,0 +1,60 @@
+# ========================
+# 操作系统与 IDE 相关
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ========================
+# Python / 后端 (Django/Flask 适用)
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+.env
+db.sqlite3
+*.log
+
+# ========================
+# Node.js / 前端 (Vue3/React 适用)
+# ========================
+node_modules/
+dist/
+dist-ssr/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# C/C++ & ROS 工作空间 (针对 pose_ws)
+# ========================
+# 忽略 ROS 工作空间的编译和安装产物，只保留 src 源码
+/pose_ws/build/
+/pose_ws/devel/
+/pose_ws/install/
+/pose_ws/log/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# ========================
+# 模型与大数据文件 (防止撑爆 Git)
+# ========================
+*.pt
+*.pth
+*.onnx
+*.weights
+*.mp4
+*.avi

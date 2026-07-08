@@ -1,0 +1,3 @@
+[console_scripts]
+detector_node = jumping_evaluator.detector_node:main
+

@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* 1. 专属色彩与设计系统 (替代原 tailwind.config.js) */
+@theme {
+  --color-kiosk-bg: #050507;     /* 极深黑，让屏幕边框隐形 */
+  --color-kiosk-card: #141417;   /* 略亮的深灰，用于卡片底色 */
+  
+  --color-neon-green: #32FF7E;   /* 标志性荧光绿（行动、成功） */
+  --color-neon-orange: #FF9F43;  /* 活力橙 */
+  --color-neon-red: #FF4D4D;     /* 警示红 */
+  
+  --color-ai-start: #7B2CBF;     /* 大模型发声渐变紫 */
+  --color-ai-end: #4361EE;       /* 大模型发声渐变蓝 */
+
+  --font-sans: "SF Pro Display", Inter, system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, monospace;
+
+  /* 超大字体排版 */
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-10xl: 8rem;
+  --text-10xl--line-height: 1;
+  --text-12xl: 12rem;
+  --text-12xl--line-height: 1;
+
+  /* 为大模型语音预留动效 */
+  --animate-soundwave: soundwave 1s ease-in-out infinite;
+  --animate-breath: breath 2s ease-in-out infinite;
+
+  @keyframes soundwave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes breath {
+    0%, 100% { opacity: 0.5; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+}
+
+/* 2. 锁死全局行为，打造纯正 App 体验 */
+@layer base {
+  body, html {
+    @apply bg-kiosk-bg text-white overflow-hidden w-full h-full m-0 p-0;
+    
+    /* 核心：禁止选中、缩放、滚动 */
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    scrollbar-width: none;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 3. 封装 Apple Fitness 风格的毛玻璃组件 */
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-panel-light {
+    @apply bg-white/10 backdrop-blur-3xl border border-white/20 shadow-2xl;
+  }
+
+  .btn-neon {
+    @apply relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/10
+           text-xl font-bold tracking-wider transition-all duration-300 active:scale-95;
+  }
+  
+  .btn-neon-primary {
+    @apply bg-neon-green text-black border-transparent;
+    box-shadow: 0 0 20px rgba(50, 255, 126, 0.4);
+  }
+}

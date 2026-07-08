@@ -1,0 +1,3 @@
+[console_scripts]
+detector_node = squat_evaluator.detector_node:main
+

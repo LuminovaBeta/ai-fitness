@@ -1,0 +1,6 @@
+话题名称,消息类型 (std_msgs),方向,频次,载荷格式与说明
+/pose/angles,Float64MultiArray,输入,高频,视觉/姿态算法计算出的各个关键关节角度数组。作为所有动作检测器的基础数据源。
+/<action_name>/control,Bool,输入,离散,True: 启用检测器并开始捕获。False: 停用检测器，并清空内部状态、计数器及冷却缓存。
+/<action_name>/rep_completed,Int32,输出,离散,每次用户完成一个完整动作周期后发布一次，携带当前已完成的总个数。
+/<action_name>/state,String (JSON),输出,状态切换时,"输出当前动作所处的阶段，方便 UI/音频模块调用。格式: {""code"": int, ""msg"": ""string""}* 0: 预备/空闲* 1, 2, 3...: 动作中间各个流转状态。"
+/<action_name>/errors,String (JSON),输出,离散 (带冷却),"实时检测出的错误动作，方便触发纠错提示框或语音。格式: {""code"": int, ""msg"": ""string""}* 101, 102...: 具体错误标识码。"

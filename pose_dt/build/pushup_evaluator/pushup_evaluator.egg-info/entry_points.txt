@@ -1,0 +1,3 @@
+[console_scripts]
+pushup_node = pushup_evaluator.detector_node:main
+
